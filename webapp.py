@@ -75,12 +75,14 @@ def authorized():
 
 
 @app.route('/page1')
-def renderPage1():
-    if 'user_data' in session:
-        user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
-    else:
-        user_data_pprint = '';
-    return render_template('page1.html',dump_user_data=user_data_pprint)
+    connection_string = os.environ["MONGO_CONNECTION_STRING"]
+    db_name = os.environ["MONGO_DBNAME"]
+
+    client = pymongo.MongoClient(connection_string)
+    db = client[db_name]
+    collection = db['Data'] #1. put the name of your collection in the quotes
+    test = collection.find_one()
+    return render_template('page1.html', testdata = test)
 
 @app.route('/page2')
 def renderPage2():
@@ -94,16 +96,6 @@ def renderPage2():
 def get_github_oauth_token():
     return session['github_token']
 
-@app.route('/database')
-def getdatabase():
-    connection_string = os.environ["MONGO_CONNECTION_STRING"]
-    db_name = os.environ["MONGO_DBNAME"]
-
-    client = pymongo.MongoClient(connection_string)
-    db = client[db_name]
-    collection = db['Data'] #1. put the name of your collection in the quotes
-    test = collection.find_one()
-    return render_template('page1.html', testdata = test)
 
 
 if __name__ == '__main__':

@@ -75,6 +75,7 @@ def authorized():
 
 
 @app.route('/page1')
+def renderPage1():
     connection_string = os.environ["MONGO_CONNECTION_STRING"]
     db_name = os.environ["MONGO_DBNAME"]
 

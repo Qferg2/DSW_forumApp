@@ -24,7 +24,7 @@ db_name = os.environ["MONGO_DBNAME"]
 client = pymongo.MongoClient(connection_string)
 db = client[db_name]
 collection = db['Data']
-test = collection.find_one()
+collection.find_one()
 
 #Set up Github as OAuth provider
 github = oauth.remote_app(

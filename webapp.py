@@ -83,6 +83,8 @@ def authorized():
 @app.route('/page1')
 def renderPage1():
         test = collection.find_one()
+
+
     return render_template('page1.html', testdata = test)
 
 @app.route('/page2')

@@ -24,6 +24,7 @@ db_name = os.environ["MONGO_DBNAME"]
 client = pymongo.MongoClient(connection_string)
 db = client[db_name]
 collection = db['Data']
+test = collection.find_one()
 
 #Set up Github as OAuth provider
 github = oauth.remote_app(
@@ -82,7 +83,7 @@ def authorized():
 
 @app.route('/page1')
 def renderPage1():
-        test = collection.find_one()
+    test = collection.find_one()
 
 
     return render_template('page1.html', testdata = test)

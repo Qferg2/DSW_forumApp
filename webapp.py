@@ -84,7 +84,7 @@ def authorized():
 @app.route('/page1')
 def renderPage1():
 
-    document = {"name" : "Brandon", "birthday" : "10/6/03"}
+    document = {"name" : "Brandon", "birthday" : "wfgbwyobwfyio"}
     collection.insert_one(document)
     test = collection.find_one()
 

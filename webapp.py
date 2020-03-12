@@ -86,8 +86,7 @@ def renderPage1():
 
     if ('data' in request.args):
         form = float(request.args['data'])
-    test = form
-    document = {session["user_data"]["login"] : test}
+    test = {session["user_data"]["login"] : form}
     return render_template('page1.html', testdata = test)
 
 @app.route('/page2')

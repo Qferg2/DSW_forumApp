@@ -83,9 +83,10 @@ def authorized():
 
 @app.route('/page1')
 def renderPage1():
-    test = collection.find_one()
+
     document = {"name" : "Brandon", "birthday" : "10/6/03"}
     collection.insert_one(document)
+    test = collection.find_one()
 
     return render_template('page1.html', testdata = test)
 

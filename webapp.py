@@ -84,10 +84,10 @@ def authorized():
 @app.route('/page1')
 def renderPage1():
 
-    document = {"name" : "Brandon", "birthday" : "wfgbwyobwfyio"}
-    collection.insert_one(document)
-    test = collection.find_one()
-
+    if ('data' in request.args):
+        form = float(request.args['data'])
+    test = form
+    document = {session["user_data"]["login"] : test}
     return render_template('page1.html', testdata = test)
 
 @app.route('/page2')

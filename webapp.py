@@ -86,7 +86,8 @@ def renderPage1():
 
     if ('data' in request.args):
         form = float(request.args['data'])
-    test = {session["user_data"]["login"] : form}
+    document = {session["user_data"]["login"] : form}
+    test = collection.insert_one(document)
     return render_template('page1.html', testdata = test)
 
 @app.route('/page2')

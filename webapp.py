@@ -80,12 +80,12 @@ def authorized():
             message = 'Unable to login. Please try again.'
     return render_template('message.html', message=message)
 
-# , methods=['GET','POST']
-@app.route('/page1')
+
+@app.route('/page1', methods=['GET','POST'])
 def renderPage1():
     if 'user_data' in session:
-        if 'data' in request.args:
-            input = request.args['data']
+        if 'data' in request.form:
+            input = request.form['data']
             document = {'User':session['user_data']['login'], 'Message':input}
             posts = db.Data
             post_id = posts.insert_one(post).inserted_id

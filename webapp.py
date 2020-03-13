@@ -90,7 +90,7 @@ def renderPage1():
             posts = db.Data
             post_id = posts.insert_one(post).inserted_id
             post_id
-        posts = db.Data
+            posts = db.Data
 	    options=''
 	    for post in messages.find():
 		    options += document['User'] + '\t' + document['Message'] + '\n'

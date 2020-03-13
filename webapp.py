@@ -91,10 +91,10 @@ def renderPage1():
             post_id = posts.insert_one(post).inserted_id
             post_id
             posts = db.Data
-	    options=''
-	    for post in messages.find():
-		    options += document['User'] + '\t' + document['Message'] + '\n'
-	    print("")    
+    options=''
+    for post in messages.find():
+    	options += document['User'] + '\t' + document['Message'] + '\n'
+    print("")    
     return render_template('page1.html', testdata = options)
 
 @app.route('/page2')

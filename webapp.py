@@ -88,7 +88,7 @@ def renderPage1():
     document = {session["user_data"]["login"] : form}
     collection.insert_one(document)
     test = collection.find_one()
-    return render_template('page1.html', testdata = test)
+    return render_template('page1.html', testdata = test, responseFromServer = Forn)
 
 @app.route('/page2')
 def renderPage2():

@@ -80,7 +80,7 @@ def authorized():
             message = 'Unable to login. Please try again.'
     return render_template('message.html', message=message)
 
-
+# , methods=['GET','POST']
 @app.route('/page1')
 def renderPage1():
     if 'user_data' in session:

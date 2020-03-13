@@ -83,6 +83,7 @@ def authorized():
 
 @app.route('/page1', methods=['GET','POST'])
 def renderPage1():
+    options=''
     if 'user_data' in session:
         if 'data' in request.form:
             input = request.form['data']
@@ -91,7 +92,6 @@ def renderPage1():
             post_id = posts.insert_one(post).inserted_id
             post_id
         posts = db.Data
-        options=''
         for post in posts.find():
     	    options += document['User'] + '\t' + document['Message'] + '\n'
         print("")    

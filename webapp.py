@@ -24,7 +24,7 @@ db_name = os.environ["MONGO_DBNAME"]
 client = pymongo.MongoClient(connection_string)
 db = client[db_name]
 collection = db['Data']
-collection.find_one()
+
 
 #Set up Github as OAuth provider
 github = oauth.remote_app(
@@ -83,12 +83,19 @@ def authorized():
 
 @app.route('/page1')
 def renderPage1():
-    if ('data' in request.args):
-        form = float(request.args['data'])
-    document = {session["user_data"]["login"] : form}
-    collection.insert_one(document)
-    test = collection.find_one()
-    return render_template('page1.html', testdata = test)
+    if 'user_data' in session:
+        if 'data' in request.args:
+            input = request.args['data']
+            document = {'User':session['user_data']['login'], 'Message':input}
+            posts = db.Data
+		    post_id = posts.insert_one(post).inserted_id
+            post_id
+        posts = db.Data
+	    options=''
+	    for post in messages.find():
+		    options += document['User'] + '\t' + document['Message'] + '\n'
+	    print("")    
+    return render_template('page1.html', testdata = options)
 
 @app.route('/page2')
 def renderPage2():

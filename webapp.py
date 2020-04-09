@@ -89,7 +89,7 @@ def renderPage1():
             input = request.form['data']
             document = {'User':session['user_data']['login'], 'Message':input}
             posts = db.Data
-            post_id = posts.insert_one(post).inserted_id
+            post_id = posts.insert_one(document).inserted_id
             post_id
         posts = db.Data
         for document in posts.find():

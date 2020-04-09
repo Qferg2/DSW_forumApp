@@ -88,10 +88,10 @@ def renderPage1():
         if 'data' in request.form:
             input = request.form['data']
             document = {'User':session['user_data']['login'], 'Message':input}
-            posts = db.posts
+            posts = db.Data
             post_id = posts.insert_one(document).inserted_id
             post_id
-        posts = db.posts
+        posts = db.Data
         for document in posts.find():
             options += document['User'] + '\t' + document['Message'] + '\n'
         print("")

@@ -90,7 +90,7 @@ def renderPage1():
             document = {'User':session['user_data']['login'], 'Message':input}
             posts = db.Data
             post_id = posts.insert_one(document).inserted_id
-            post_id
+            print(post_id)
         posts = db.Data
         for document in posts.find():
             options += document['User'] + '\t' + document['Message'] + '\n'

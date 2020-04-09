@@ -93,7 +93,6 @@ def renderPage1():
             post_id
         posts = db.Data
         for document in posts.find():
-            print(post)
             options += document['User'] + '\t' + document['Message'] + '\n'
         print("")
     return render_template('page1.html', testdata = options)

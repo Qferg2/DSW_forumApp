@@ -99,11 +99,19 @@ def renderPage1():
 
 @app.route('/page2')
 def renderPage2():
+    options=''
     if 'user_data' in session:
-        public_repo_pprint = pprint.pformat(session['user_data']['public_repos'])#format the user data nicely
-    else:
-        public_repo_pprint = '';
-    return render_template('page2.html', public_repo_data=public_repo_pprint)
+        if 'data' in request.form:
+            input = request.form['data']
+            document = {'User':session['user_data']['login'], 'Message':input}
+            posts = db.Data
+            post_id = posts.insert_one(document).inserted_id
+            print(post_id)
+        posts = db.Data
+        for document in posts.find():
+            options += document['User'] + '\t' + document['Message'] + '\n'
+        print("")
+    return render_template('page2.html', testdata = options)
 
 @github.tokengetter
 def get_github_oauth_token():

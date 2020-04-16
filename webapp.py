@@ -97,21 +97,6 @@ def renderPage1():
         print("")
     return render_template('page1.html', testdata = options)
 
-@app.route('/page2')
-def renderPage2():
-    options=''
-    if 'user_data' in session:
-        if 'data' in request.form:
-            input = request.form['data']
-            document = {'User':session['user_data']['login'], 'Message':input}
-            posts = db.Data
-            post_id = posts.insert_one(document).inserted_id
-            print(post_id)
-        posts = db.Data
-        for document in posts.find():
-            options += document['User'] + '\t' + document['Message'] + '\n'
-        print("")
-    return render_template('page2.html', testdata = options)
 
 @github.tokengetter
 def get_github_oauth_token():

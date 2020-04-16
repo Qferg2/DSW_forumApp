@@ -7,13 +7,13 @@ body {
 }
 .info{
   text-align: center;
-  max-width: 75%;
+  max-width: 50%;
   margin-top: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-.chilling{
+#chilling{
   display: block;
   margin-left: auto;
   margin-right: auto;

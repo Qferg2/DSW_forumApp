@@ -95,7 +95,7 @@ def renderPage1():
         for document in posts.find():
             options += document['User'] + '\t' + document['Message'] + '\n'
             <form action="/delete" method="post"> 
-                <button type="submit" name="data" value="docid">Delete</button>
+                <button type="submit" name="data" value="fname">Delete</button>
             </form>
         print("")
     return render_template('page1.html', testdata = options)

@@ -3,12 +3,16 @@
 {% block title %}page2{% endblock %}
 
 {% block content %}
-  <h1>This is Page 2</h1>
+  <h1>Delete Message</h1>
 
-<p>Here is your number of public repositories:</p>
+<form action="/page1" method="post">
+  <label>Delete a Message</label>
+  <input type="text" id="fname" name="data"><br><br>
+  <input type="submit" value="Submit">
+</form>
 
 <pre>
-{{ public_repo_data }}
+{{testdata}}
 </pre>
 
 {% endblock %}

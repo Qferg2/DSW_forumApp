@@ -82,7 +82,7 @@ def authorized():
     return render_template('message.html', message=message)
 
 
-@app.route('/page1', methods=['POST'])
+@app.route('/page1', methods=['GET','POST'])
 def renderPage1():
     options=''
     if 'user_data' in session:

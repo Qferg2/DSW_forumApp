@@ -97,7 +97,7 @@ def renderPage1():
             id = ObjectId(request.form['delete'])
             posts.delete_one({'_id':id})
         for document in posts.find():
-            options += document['User'] + '\t' + document['Message'] + '\n' + Markup('<form action="/page1" method="post"> <button type="submit" name="delete" value="'+document["_id"]+'">Delete</button> </form>')
+            options += document['User'] + '\t' + document['Message'] + '\n' + Markup('<form action="/page1" method="post"> <button type="submit" name="delete" value="'+str(document["_id"])+'">Delete</button> </form>')
         print("")
         
     return render_template('page1.html', testdata = options)

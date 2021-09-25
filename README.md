@@ -1,4 +1,4 @@
-# DSW_forumApp
+Working message board with OAuth login using MongoDB
 https://forum-app-dsw.herokuapp.com/
 
 set MONGO_DBNAME=Forum_Project
